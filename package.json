@@ -1,32 +1,60 @@
 {
-  "name": "my-ts-lib",
+  "name": "ts-lib-starter",
   "version": "0.0.0",
   "description": "My awesome typescript library",
-  "publishConfig": {
-    "access": "public"
+  "homepage": "https://github.com/StarterHub/ts-lib-starter",
+  "bugs": "https://github.com/StarterHub/ts-lib-starter/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StarterHub/ts-lib-starter.git"
   },
+  "license": "MIT",
+  "author": {
+    "name": "kjxbyz",
+    "email": "kjxbyz888@outlook.com",
+    "url": "https://github.com/kjxbyz"
+  },
+  "type": "module",
+  "exports": {
+    "import": {
+      "types": "./dist/main.d.ts",
+      "default": "./dist/main.js"
+    },
+    "require": {
+      "types": "./dist/main.d.cts",
+      "default": "./dist/main.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
-  },
-  "types": "./dist/index.d.ts",
   "scripts": {
-    "build-fast": "tsup src/index.ts --format cjs,esm",
-    "build": "pnpm run build-fast -- --dts-resolve",
-    "test": "vitest run",
-    "prepublishOnly": "pnpm run build"
+    "build": "tsup",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run build",
+    "test": "vitest run"
   },
-  "license": "MIT",
   "devDependencies": {
-    "@egoist/prettier-config": "1.0.0",
-    "prettier": "2.8.4",
-    "tsup": "6.6.3",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@types/node": "18.19.41",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.1",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.3",
+    "sort-package-json": "^2.10.0",
+    "tsup": "^8.1.2",
     "typescript": "4.9.5",
-    "vitest": "0.28.5"
+    "vitest": "^2.0.3"
+  },
+  "packageManager": "pnpm@9.5.0",
+  "publishConfig": {
+    "access": "public"
   }
 }
